@@ -1,0 +1,19 @@
+#spacemanager {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: auto;
+    position: relative;
+}
+
+#spacemanager .controls{
+    margin: 10px;
+}
+
+#spacemanager .controls div span{
+    cursor:pointer;
+    color:#3482bd;
+    padding: 10px;
+}
+
+.text{
+    font-size: 7px;
+}

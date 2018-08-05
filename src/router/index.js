@@ -6,6 +6,7 @@ import Files from '@/views/Files'
 import Users from '@/views/settings/Users'
 import User from '@/views/settings/User'
 import Settings from '@/views/Settings'
+import SpaceManager from '@/views/SpaceManager'
 import GlobalSettings from '@/views/settings/Global'
 import ProfileSettings from '@/views/settings/Profile'
 import Error403 from '@/views/errors/403'
@@ -88,6 +89,11 @@ const router = new Router({
               }
             }
           ]
+        },
+        {
+          path: '/spacemanager',
+          name: 'Space Manager',
+          component: SpaceManager
         },
         {
           path: '/403',
