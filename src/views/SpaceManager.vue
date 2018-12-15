@@ -101,6 +101,10 @@ export default {
           .attr('class', 'text')
           .attr('text-anchor', 'middle')
           .text(function (d) { return truncate(pathBase(d.name), x(d.dx), 7) })
+          .attr('fill', '#000')
+          .on('mouseover', textMouseOver)
+          .on('click', textClicked)
+          .on('mouseout', textMouseOut)
 
         textSizes = nodeEnter.append('text')
           .attr('x', function (d) { return x(d.x) + x(d.dx) / 2 })
@@ -132,6 +136,26 @@ export default {
           .attr('x', function (d) { return x(d.x) + (x(d.x + d.dx) - x(d.x)) / 2 })
           .attr('y', function (d) { return 12 + y(d.y) + (y(d.y + d.dy) - y(d.y)) / 2 })
           .text(function (d) { return truncate(formatSize(d.totalSize), x(d.x + d.dx) - x(d.x), 7) })
+      }
+
+      function textClicked (d) {
+        window.open('/files/' + d.name)
+      }
+
+      function textMouseOver (d) {
+        d3.select(this)
+          .transition()
+          .duration(100)
+          .attr('fill', '#07C')
+          .style('cursor', 'pointer')
+      }
+
+      function textMouseOut (d) {
+        d3.select(this)
+          .transition()
+          .duration(100)
+          .attr('fill', '#000')
+          .style('cursor', 'default')
       }
 
       function truncate (text, width, pxPerChar) {
